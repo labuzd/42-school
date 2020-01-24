@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   repeat_alpha.c                                     :+:      :+:    :+:   */
+/*   rev_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlabuz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/24 12:51:01 by dlabuz            #+#    #+#             */
-/*   Updated: 2020/01/24 13:24:14 by dlabuz           ###   ########.fr       */
+/*   Created: 2020/01/24 13:43:20 by dlabuz            #+#    #+#             */
+/*   Updated: 2020/01/24 14:29:36 by dlabuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		count(char c)
-{
-	int rep;
-
-	if (c >= 'A' && c <= 'Z')
-		rep = c - 'A' + 1;
-	else if (c >= 'a' && c <= 'z')
-		rep = c - 'a' + 1;
-	else
-		rep = 1;
-	return (rep);
-}
-
 #include <unistd.h>
 
-int	main(int ac, char **av)
+void ft_reverse(char *s)
 {
-	int rep;
+	int i;
 
-	if (ac == 2)
+	i = 0;
+	while (s[i])
+		++i;
+	--i;
+	while (i >= 0)
 	{
-		while (*av[1])
-		{
-			rep = count(*av[1]);
-			while (rep--)
-				write(1, av[1], 1);
-			av[1]++;
-		}
+		write(1, s + i, 1);
+		--i;
 	}
-	write(1, "\n", 1);
 }
+
+int main(int ac, char **av)
+{
+	if (ac == 2)
+		ft_reverse(av[1]);
+	write(1, "\n", 1);
+	return (0);
+}
+
