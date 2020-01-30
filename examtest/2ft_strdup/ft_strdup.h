@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlabuz <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/29 20:32:41 by dlabuz            #+#    #+#             */
+/*   Updated: 2020/01/29 20:56:22 by dlabuz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
+
+int ft_strlen(char *str)
+{
+	int i = 0;
+
+	while (str[i] != '\0')
+		++i;
+	return (i);
+}
+
+char	*ft_strdup(char *src)
+{
+	int i = 0;
+	int len = ft_strlen(src);
+	char *new = malloc(sizeof(char) * (len + 1));
+
+	while (src[i] != '\0')
+	{
+		new[i] = src[i];
+		++i;
+	}
+	new[i] = '\0';
+	return (new);
+}
