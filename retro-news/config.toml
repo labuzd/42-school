@@ -1,0 +1,54 @@
+# Настройки сборщика новостей о ретро-автомобилях.
+
+[site]
+title = "Ретро Авто Новости"
+description = "Свежие новости из мира классических и ретро-автомобилей"
+# Сколько новостей показывать на сайте
+max_items = 200
+
+[telegram]
+enabled = true
+# Сколько постов максимум публиковать за один запуск (чтобы не заспамить канал)
+max_posts_per_run = 5
+# Пауза между постами, секунды
+delay_seconds = 3
+# Не публиковать новости старше N дней (важно при первом запуске)
+max_age_days = 3
+
+[filter]
+# Для источников с filter = true новость проходит, только если в заголовке
+# или описании есть одно из слов ниже или год 1900–1999.
+keywords = [
+  "classic", "vintage", "retro", "oldtimer", "youngtimer", "restomod",
+  "restoration", "restored", "barn find", "concours", "heritage", "pebble beach",
+  "goodwood", "hot rod", "muscle car", "air-cooled", "pre-war", "coachbuilt",
+  "ретро", "классическ", "олдтаймер", "раритет", "реставрац", "советск", "ссср",
+]
+
+# Источники. filter = false — тематический сайт, берём всё подряд.
+# filter = true — общий автосайт, пропускаем только ретро-тематику.
+
+[[sources]]
+name = "Hemmings"
+url = "https://www.hemmings.com/stories/feed"
+filter = false
+
+[[sources]]
+name = "Hagerty"
+url = "https://www.hagerty.com/media/feed/"
+filter = false
+
+[[sources]]
+name = "Silodrome"
+url = "https://silodrome.com/feed/"
+filter = false
+
+[[sources]]
+name = "Classic Driver"
+url = "https://www.classicdriver.com/en/rss.xml"
+filter = false
+
+[[sources]]
+name = "Carscoops"
+url = "https://www.carscoops.com/feed/"
+filter = true
